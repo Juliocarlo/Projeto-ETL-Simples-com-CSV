@@ -5,16 +5,23 @@ Ele lê dados fictícios de vendas, transforma os dados para gerar insights e sa
 
 
 📂 Estrutura do Projeto
+
 etl-vendas-csv/
 │
 ├── README.md
 ├── etl_simples.py
 └── vendas.csv
 
+Os arquivos de saída são gerados automaticamente:
 
-Os arquivos de saída (vendas_transformadas.csv, receita_por_produto.csv, receita_por_dia.csv) serão gerados automaticamente quando você rodar o script.
+vendas_transformadas.csv
+
+receita_por_produto.csv
+
+receita_por_dia.csv
 
 🐍 Script Python (etl_simples.py)
+
 import pandas as pd
 
 # 1. Extração
@@ -37,9 +44,8 @@ receita_dia.to_csv("receita_por_dia.csv", index=False)
 
 print("ETL concluído! Arquivos CSV gerados com sucesso.")
 
-
-
 📊 CSV de Entrada (vendas.csv)
+
 id_venda,produto,quantidade,preco_unitario,data
 1, Camiseta ,2,50.0,2025-12-01
 2,Calça,1,120.0,2025-12-01
@@ -52,8 +58,10 @@ id_venda,produto,quantidade,preco_unitario,data
 9,Boné,1,30.0,2025-12-04
 10,calça,3,120.0,2025-12-05
 
-📈 CSVs Gerados
+📈 Arquivos Gerados
+
 vendas_transformadas.csv
+
 id_venda,produto,quantidade,preco_unitario,data,valor_total
 1,camiseta,2,50.0,2025-12-01,100.0
 2,calça,1,120.0,2025-12-01,120.0
@@ -66,16 +74,16 @@ id_venda,produto,quantidade,preco_unitario,data,valor_total
 9,boné,1,30.0,2025-12-04,30.0
 10,calça,3,120.0,2025-12-05,360.0
 
-
 receita_por_produto.csv
+
 produto,valor_total
 calça,720.0
 tênis,600.0
 camiseta,350.0
 boné,150.0
 
-
 receita_por_dia.csv
+
 data,valor_total
 2025-12-01,220.0
 2025-12-02,450.0
@@ -83,10 +91,20 @@ data,valor_total
 2025-12-04,130.0
 2025-12-05,360.0
 
+▶️ Como executar
 
+Instale o pandas:
 
+pip install pandas
 
+Rode o script:
 
+python etl_simples.py
 
+Os arquivos gerados estarão na mesma pasta:
 
+vendas_transformadas.csv
 
+receita_por_produto.csv
+
+receita_por_dia.csv
